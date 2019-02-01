@@ -10,7 +10,7 @@ class Navbar extends Component {
                     <li><a class="active" href="/Home">Home</a></li>
                     <li><a href="/YourPlaylist">Your Playlist</a></li>
                     {/* <li><a href="Login">Login</a></li> */}
-                    <li><a href="Register">Register</a></li>
+                    <li><a href="User">User</a></li>
                 </ul>
             
         );

@@ -11,9 +11,9 @@ const Home = () => {
                     <header className="App-header">
                         <div id="content-stuff">
                             <img src={logo} className="App-logo" alt="logo" />
-                            <div>
-                                <h1><Text text="KANYE-TABASE" /></h1>
-                                <p></p>
+                            <div id="content-over-image">
+                                <h1><Text text="KANYE-TABASE"  /></h1>
+                                <p>Make your own Kanye West playlist</p>
                             </div>
                         </div>
                     </header>

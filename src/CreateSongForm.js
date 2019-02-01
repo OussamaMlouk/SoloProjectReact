@@ -17,10 +17,6 @@ export default class CreateSongForm extends React.Component {
         };
     }
 
-    reloadPage() {
-        window.location.reload()
-    }
-
     songNameChange = (event) => {
         this.setState({ songName: event.target.value });
     }
@@ -79,7 +75,7 @@ export default class CreateSongForm extends React.Component {
 
     render() {
         return (
-            <div><h1><Text text="Create a song" /></h1>
+            <div><h1><Text text="Add a song" /></h1>
                 <Form>
                     <Row form>
 

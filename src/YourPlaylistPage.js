@@ -4,6 +4,7 @@ import Text from './Text.js';
 import axios from 'axios';
 import CreateSongForm from './CreateSongForm.js';
 import { Table } from 'reactstrap';
+import DeleteSongForm from './DeleteSongForm.js';
 
 export default class YourPlaylistPage extends React.Component {
     constructor() {
@@ -37,6 +38,10 @@ export default class YourPlaylistPage extends React.Component {
             <div><CreateSongForm />
                 <br />
                 <br />
+                <DeleteSongForm />
+                <br />
+                <br />
+                <h1><Text text="Get your playlist" /></h1>
                 <Form>
                     <Row>
                         <FormGroup>
