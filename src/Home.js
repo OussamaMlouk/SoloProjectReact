@@ -11,18 +11,16 @@ const Home = () => {
                     <header className="App-header">
                         <div id="content-stuff">
                             <img src={logo} className="App-logo" alt="logo" />
-                            <div id="content-over-image">
+                            <div>
                                 <h1><Text text="KANYE-TABASE" /></h1>
-                                <p><Text text="Search for all your favourite Kanye West songs and add them to your playlist" /></p>
+                                <p></p>
                             </div>
                         </div>
                     </header>
                 </div>
-                <SearchBar />
-
             </header>
-            </div>
-            )
+        </div>
+    )
 }
 
 export default Home;
