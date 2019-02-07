@@ -13,6 +13,7 @@ export default class UpdateUser extends React.Component {
             newUserName: "",
             newPassword: "",
             newUserId: "0",
+            responseMessage:""
         };
     }
 
@@ -61,7 +62,13 @@ export default class UpdateUser extends React.Component {
                 password: this.state.newPassword
             }]
 
+        }).then(response =>{
+            this.setState({
+                responseMessage: response.data.message
+            })
+            alert(this.state.responseMessage);
         });
+        
         // this.props.history.push('/YourPlaylist');
     }
     render() {

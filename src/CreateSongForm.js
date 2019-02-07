@@ -13,7 +13,8 @@ export default class CreateSongForm extends React.Component {
             producerName: "",
             year: "",
             userName: "",
-            userId: ""
+            userId: "",
+            responseMessage:""
         };
     }
 
@@ -65,12 +66,14 @@ export default class CreateSongForm extends React.Component {
                 producerName: this.state.producerName,
                 year: this.state.year,
                 userId: this.state.userId
-
             }
+         }).then(response => {
+            this.setState({
+                responseMessage: response.data.message
+            })
+            alert(this.state.responseMessage);
         });
-        // this.reloadPage();
     }
-    // this.props.history.push('/Home');
 
 
     render() {

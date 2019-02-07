@@ -11,6 +11,7 @@ export default class UserPage extends React.Component {
         this.state = {
             userName: "",
             password: "",
+            responseMessage: ""
         };
     }
 
@@ -30,35 +31,46 @@ export default class UserPage extends React.Component {
                 userName: this.state.userName,
                 password: this.state.password
             }
-        });
-        this.props.history.push('/YourPlaylist');
-    }
-    render() {
-        return (
-            <div>
-                <h1><Text text="Create an account" /></h1>
+        }).then(response => {
+            this.setState({
+                responseMessage: response.data.message
+            })
+            if (this.state.responseMessage!="user has been sucessfully added") {
+                alert(this.state.responseMessage);
+            }
+            else{
+            this.props.history.push('/YourPlaylist');
+            }
+        }
+        )
+        
+}
+render() {
+    return (
+        <div>
+            <h1><Text text="Create an account" /></h1>
 
-                <Form>
-                    <Row form>
-                        <FormGroup>
-                            <Label for="username"></Label>
-                            <Input type="text" name="username" id="username" placeholder="Username" onChange={this.userNameChange} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="password"></Label>
-                            <Input type="password" name="password" id="password" placeholder="Password" onChange={this.passwordChange} />
-                        </FormGroup>
-                    </Row>
-                </Form>
-                <Button type="button" onClick={this.handleInput}>Submit</Button>
-                <br />
-                <br />
-                <UpdateUser />
-                <br />
-                <br />
-                <DeleteUser />
-            </div>
-        );
-    }
+            <Form>
+                <Row form>
+                    <FormGroup>
+                        <Label for="username"></Label>
+                        <Input type="text" name="username" id="username" placeholder="Username" onChange={this.userNameChange} />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="password"></Label>
+                        <Input type="password" name="password" id="password" placeholder="Password" onChange={this.passwordChange} />
+                    </FormGroup>
+                </Row>
+            </Form>
+            <Button type="button" onClick={this.handleInput}>Submit</Button>
+            <br />
+            <br />
+            <UpdateUser />
+            <br />
+            <br />
+            <DeleteUser />
+        </div>
+    );
+}
 }
 

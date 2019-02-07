@@ -8,12 +8,18 @@ export default class DeleteUser extends React.Component {
         super();
         this.state = {
             userName:"",
-            userId:""
+            password:"",
+            userId:"",
+            response:""
         };
     }
 
     userNameChange = (event) => {
         this.setState({ userName: event.target.value });
+    }
+
+    passwordChange = (event) => {
+        this.setState({ password: event.target.value });
     }
 
     getIdFromUserName = () => {
@@ -29,12 +35,21 @@ export default class DeleteUser extends React.Component {
     }
 
     handleInput = () => {
-        this.getIdFromUserName();
+        // this.getIdFromUserName();
         axios({
             method: "delete",
-            url: "http://localhost:8080/SoloProjectAPI/api/User/deleteUser/"+this.state.userId,
-            resonseType: "json"
-        });
+            url: "http://localhost:8080/SoloProjectAPI/api/user/deleteUserWithPassword",
+            data:
+            {
+                userName : this.state.userName,
+                password: this.state.password
+            }
+        }).then(response =>{
+            this.setState({
+                response : response.data.message
+            })
+            alert(this.state.response);
+        })
     }
 
 
@@ -47,6 +62,10 @@ export default class DeleteUser extends React.Component {
                         <FormGroup>
                             <Label for="UserName" ></Label>
                             <Input type="text" name="UserName" id="UserName" placeholder="Username" onChange={this.userNameChange} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="Password" ></Label>
+                            <Input type="password" name="password" id="password" placeholder="Password" onChange={this.passwordChange} />
                         </FormGroup>
                     </Row>
                 </Form>

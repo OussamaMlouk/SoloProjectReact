@@ -9,6 +9,7 @@ export default class DeleteSongForm extends React.Component {
         this.state = {
             songName: "",
             userName:"",
+            reponseMessage:""
         };
     }
 
@@ -25,6 +26,11 @@ export default class DeleteSongForm extends React.Component {
             method: "delete",
             url: "http://localhost:8080/SoloProjectAPI/api/song/deleteSong/"+this.state.userName+"/"+this.state.songName,
             resonseType: "json"
+        }).then(response => {
+            this.setState({
+                responseMessage: response.data.message
+            })
+            alert(this.state.responseMessage);
         });
         // this.reloadPage();
     }

@@ -11,7 +11,9 @@ export default class YourPlaylistPage extends React.Component {
         super();
         this.state = {
             songList: [],
-            userName: ""
+            userName: "",
+            userId: "",
+            responseMessage:""
         };
     }
 
@@ -19,8 +21,20 @@ export default class YourPlaylistPage extends React.Component {
         this.setState({ userName: event.target.value });
     }
 
+    getIdFromUserName = () => {
+        axios({
+            method: "get",
+            url: "http://localhost:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.userName,
+            responseType: "json"
+        }).then(response => {
+            this.setState({
+                userId: response.data
+            })
+        });
+    }
 
     getSongList = () => {
+        
         axios({
             method: "get",
             url: "http://localhost:8080/SoloProjectAPI/api/song/getSongList/" + this.state.userName,
@@ -28,7 +42,7 @@ export default class YourPlaylistPage extends React.Component {
         }).then(response => {
             this.setState({
                 songList: response.data
-            })
+            });
         })
     }
 
