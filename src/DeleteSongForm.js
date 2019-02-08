@@ -24,7 +24,7 @@ export default class DeleteSongForm extends React.Component {
     handleInput = () => {
         axios({
             method: "delete",
-            url: "http://localhost:8080/SoloProjectAPI/api/song/deleteSong/"+this.state.userName+"/"+this.state.songName,
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/song/deleteSong/"+this.state.userName+"/"+this.state.songName,
             resonseType: "json"
         }).then(response => {
             this.setState({

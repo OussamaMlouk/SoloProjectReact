@@ -36,7 +36,7 @@ export default class UpdateUser extends React.Component {
     getIdFromUserName = () => {
         axios({
             method: "get",
-            url: "http://localhost:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.oldUserName,
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.oldUserName,
             responseType: "json"
         }).then(response => {
             this.setState({
@@ -49,7 +49,7 @@ export default class UpdateUser extends React.Component {
         this.getIdFromUserName();
         axios({
             method: "post",
-            url: "http://localhost:8080/SoloProjectAPI/api/user/updateUser",
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/user/updateUser",
             data:
             [{
                 userId: this.state.oldUserId,

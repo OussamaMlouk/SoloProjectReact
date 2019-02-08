@@ -45,7 +45,7 @@ export default class CreateSongForm extends React.Component {
     getIdFromUserName = () => {
         axios({
             method: "get",
-            url: "http://localhost:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.userName,
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.userName,
             responseType: "json"
         }).then(response => {
             this.setState({
@@ -58,7 +58,7 @@ export default class CreateSongForm extends React.Component {
         this.getIdFromUserName();
         axios({
             method: "post",
-            url: "http://localhost:8080/SoloProjectAPI/api/song/createSong",
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/song/createSong",
             data: {
                 songName: this.state.songName,
                 artistName: this.state.artistName,

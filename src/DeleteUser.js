@@ -25,7 +25,7 @@ export default class DeleteUser extends React.Component {
     getIdFromUserName = () => {
         axios({
             method: "get",
-            url: "http://localhost:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.userName,
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.userName,
             responseType: "json"
         }).then(response => {
             this.setState({
@@ -38,7 +38,7 @@ export default class DeleteUser extends React.Component {
         // this.getIdFromUserName();
         axios({
             method: "delete",
-            url: "http://localhost:8080/SoloProjectAPI/api/user/deleteUserWithPassword",
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/user/deleteUserWithPassword",
             data:
             {
                 userName : this.state.userName,

@@ -24,7 +24,7 @@ export default class YourPlaylistPage extends React.Component {
     getIdFromUserName = () => {
         axios({
             method: "get",
-            url: "http://localhost:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.userName,
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/user/getIdFromUsername/" + this.state.userName,
             responseType: "json"
         }).then(response => {
             this.setState({
@@ -37,7 +37,7 @@ export default class YourPlaylistPage extends React.Component {
         
         axios({
             method: "get",
-            url: "http://localhost:8080/SoloProjectAPI/api/song/getSongList/" + this.state.userName,
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/song/getSongList/" + this.state.userName,
             responseType: "json"
         }).then(response => {
             this.setState({

@@ -25,7 +25,7 @@ export default class UserPage extends React.Component {
     handleInput = () => {
         axios({
             method: "post",
-            url: "http://localhost:8080/SoloProjectAPI/api/user/createUser",
+            url: "http://soloproject.uksouth.cloudapp.azure.com:8080/SoloProjectAPI/api/user/createUser",
             data: {
                 userName: this.state.userName,
                 password: this.state.password
